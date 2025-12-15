@@ -3,6 +3,7 @@
 #include<iomanip>
 using namespace std;
 
+void simpleCalculator();
 void root_finder (double a,double b,double c);
 void advance_calculator();
 
@@ -21,7 +22,7 @@ int main()
     switch (n)
     {
     case 1:
-    //Poorya
+        simpleCalculator();
         break;
 
     case 2:
@@ -37,6 +38,66 @@ int main()
     }
 
     return 0;
+}
+
+
+void simpleCalculator()
+{
+    int size;
+    cout << "Specify the size of the array:" << " ";
+    cin >> size;
+    int arr[1000];
+    cout << "Please Enter your Element:" << " ";
+    for (int i = 0; i < size; i++)
+    {
+        cin >> arr[i];
+    }
+    int n;
+    cout << "what do you want to do?"<< endl;
+    cout << "1)Sum" << endl;
+    cout << "2)minus" << endl;
+    cout << "3)multiply" << endl;
+
+    do
+    {
+        cin >> n;
+    } while (n <= 0 || n >= 4);
+    switch (n)
+    {
+    case 1:
+    {
+        int sum = 0;
+        for (int i = 0; i < size; i++)
+        {
+            sum += arr[i];
+        }
+        cout << "Sum: " << sum;
+
+        break;
+    }
+    case 2:
+    {
+        int result = arr[0];
+        for (int i = 1; i < size; i++)
+        {
+            result -= arr[i];
+        }
+        cout << "minus" << result;
+        break;
+    }
+
+    case 3:
+    {
+        int first = 1;
+        for (int i = 0; i < size; i++)
+        {
+            first *= arr[i];
+        }
+        cout << "multiply: " << first;
+
+        break;
+    }
+    }
 }
 
 
